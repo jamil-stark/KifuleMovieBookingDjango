@@ -1,0 +1,167 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+
+<head>
+	<!-- Basic need -->
+	<title>Kifule Movie</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="{% static 'css/plugins.css' %} ">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+	<link rel="icon" href="{% static 'images/logo1.png' %}">
+
+</head>
+<body>
+
+<div class="hero common-hero">
+    <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hero-ct">
+						<h1> Booked Tickets</h1>
+						<ul class="breadcumb">
+							<li class="active"><a href="/">Home</a></li>
+							<li> <span class="ion-ios-arrow-right"></span>My Bookings</li>
+						</ul>
+					</div>
+	
+					</div>
+					
+					<table class="table table">
+						<thead style="color: white;">
+							<th>Booking Date</th>
+							<th>Ticket's Owner</th>
+							<th>Tracking Number</th>
+							<th>Total Price</th>
+							<th>Payment Mode</th>
+						
+						</thead>
+						<tbody style="color: white;">
+							{% for item in orders %}
+								<tr>
+									<td> {{item.created_at}} </td>
+									<td>{{item.names}}</td>
+									<td> {{item.tracking_number}} </td>
+									<td> {{item.total_price}} </td>
+									<td>{{item.payment_mode}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					
+					</table>
+					<br>
+					<br>
+				</div>
+			
+        	</div>
+    </div>
+</div>
+
+
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				<a href="/"><img class="logo" src="{% static 'images/logokifule.png' %}" alt=""></a>
+				<p>Nakabusu Street, Banda<br>
+			   Opposite Hass Petroleum</p>
+			   <p>Call us: <a href="#">(+256) 703750531</a></p>
+			   <a href="https://wa.me/256706204050?text=I%20want%20to%20talk%20with%20the%20manager%20immediately.
+"><img src="{% static '/images/whatsapp_logo.png' %}" alt="whatsapp-logo" width="60px"></a>
+		   </div>
+			<div class="flex-child-ft item2">
+				{% comment %} <h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					<li><a href="#">Blockbuster</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul> {% endcomment %}
+			</div>
+			<div class="flex-child-ft item3">
+				{% comment %} <h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul> {% endcomment %}
+			</div>
+			<div class="flex-child-ft item4">
+				{% comment %} <h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">User Guide</a></li>
+				</ul> {% endcomment %}
+			</div>
+			<div class="flex-child-ft item5">
+				{% comment %} <h4>Newsletter</h4>
+				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+				<form action="#">
+					<input type="text" placeholder="Enter your email...">
+				</form>
+				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a> {% endcomment %}
+			</div>
+		</div>
+	</div>
+	<div class="ft-copyright">
+		<div class="ft-left">
+			<p><a target="_blank" href="#">Group two</a></p>
+		</div>
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+<script src="{% static '/js/jquery-3.6.0.min.js' %}"> </script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/checkoutt.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/plugins2.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/customm.js' %}"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/6302c4b454f06e12d88fef12/1gb1d0p73';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+	<!--End of Tawk.to Script-->
+</body>
+
+<!-- moviesingle11:03-->
+</html>

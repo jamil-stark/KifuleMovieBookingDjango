@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="cartdata">
+    {% if ticket %}
+    <div class="hero common-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hero-ct">
+                        <h1> Book Tickets</h1>
+                        <ul class="breadcumb">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li > <span class="ion-ios-arrow-right active"></span> Selected Movies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 
+             {% for item in ticket %}
+    <div class="flex-wrap-movielist mv-grid-fw product_data">
+        <div class="movie-item-style-2 movie-item-style-1">
+            {% csrf_token %}
+            <input type="hidden" value="{{item.film.id}}" class="film_id">
+            <img src="{{item.film.pic.url}}" alt="">
+            <div class="hvr-inner">
+                <button type="button" class="delete-cart-item" >Remove <i class="ion-android-arrow-dropright"></i></button>
+            </div>
+            <div class="mv-item-infor">
+                <h6><a href="#">{{item.film.name}}</a></h6>
+                <p class="rate"><i class="ion-android-star"></i><span>{{item.film.price}}</span> /10</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    -->
+    {% for item in ticket %}
+            <div class="page-single movie_list">
+                <div class="container">
+                    <div class="row ipad-width2">
+                        <div class="col-md-8 col-sm-12 col-xs-12 product_data">
+                            <div >
+                                {% csrf_token %}
+                                <input type="hidden" value="{{item.film.id}}" class="film_id">
+							
+                                <img src="{{item.film.pic.url}}" height="100" width="70">
+                                <div class="mv-item-infor">
+                                    <h6><a href="#"><span>{{item.film.name}}</span></a></h6>
+                                    <p class="rate"><i class="ion-android-star"></i><span>{{item.film.star}}</span> /10 <br/>{{item.film.price}} Ugx</p>
+                                    
+                                </div>
+                                <button type="button" class="item item-1 yellowbttn delete-cart-item" >remove</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+   
+
+       <a href="/store/checkout"><button type="button" class="item item-1 yellowbtn" >Pay for tickets</button></a> 
+    {% else %}
+    <div class="hero common-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hero-ct">
+                        <h1> Book Tickets</h1>
+                        <ul class="breadcumb">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li> <span class="ion-ios-arrow-right"></span> No movie is added to your cart yet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
